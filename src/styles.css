@@ -300,3 +300,6 @@
   0%,100% { transform: translate(0,0); }
   50% { transform: translate(20px,-20px); }
 }
+
+.magnetic { transition: transform .35s cubic-bezier(.2,.8,.2,1); will-change: transform; }
+.parallax { will-change: transform; transition: transform .25s ease-out; }
