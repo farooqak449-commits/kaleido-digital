@@ -133,7 +133,9 @@ export function Hero() {
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
           {stats.map((s) => (
             <div key={s.l} className="glass rounded-2xl p-5 text-left gradient-border">
-              <div className="text-3xl md:text-4xl font-bold text-gradient">{s.v}</div>
+              <div className="text-3xl md:text-4xl font-bold text-gradient tabular-nums">
+                <Counter to={s.n} suffix={s.suffix} />
+              </div>
               <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
             </div>
           ))}
