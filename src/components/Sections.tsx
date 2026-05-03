@@ -106,17 +106,16 @@ export function Hero() {
           <Sparkles className="size-3.5 text-[color:var(--brand)]" />
           A premium digital studio · Available for new projects
         </div>
-        <h1 className="reveal in mt-6 text-5xl md:text-7xl lg:text-[5.25rem] font-bold leading-[1.02]">
-          We build{" "}
-          <span className="word-rotator h-[1.1em]">
+        <h1 className="reveal in mt-6 text-4xl sm:text-5xl md:text-7xl lg:text-[5.25rem] font-bold leading-[1.05]">
+          <span className="block">We build</span>
+          <span className="word-rotator block my-1 md:my-2">
             <span style={{ animationDelay: "0s" }}>high-performance</span>
             <span style={{ animationDelay: "1.8s" }}>conversion-led</span>
             <span style={{ animationDelay: "3.6s" }}>award-winning</span>
             <span style={{ animationDelay: "5.4s" }}>lightning-fast</span>
             <span style={{ animationDelay: "7.2s" }}>SEO-ready</span>
           </span>
-          <br className="hidden md:block" />
-          digital experiences that grow businesses
+          <span className="block">digital experiences that grow businesses</span>
         </h1>
         <p className="reveal in mt-6 mx-auto max-w-2xl text-lg text-muted-foreground">
           Web Design · Shopify · SEO · Development · Maintenance — delivered by a senior team obsessed with craft and conversion.
