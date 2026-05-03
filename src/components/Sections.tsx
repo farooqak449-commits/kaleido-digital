@@ -1,10 +1,11 @@
 import { useState } from "react";
 import {
   Code2, ShoppingBag, Search, Wrench, PenTool, Gauge,
-  Sparkles, ArrowRight, Check, Quote, Star,
+  Sparkles, ArrowRight, Check, Star,
   Mail, Phone, MessageCircle, Calendar, MapPin, Send,
 } from "lucide-react";
 import { Portfolio } from "./Portfolio";
+import { Counter } from "./Counter";
 
 const services = [
   { icon: Code2, title: "Website Design", desc: "Custom-built marketing sites and web apps engineered for speed and conversion." },
@@ -15,12 +16,13 @@ const services = [
   { icon: Gauge, title: "Performance Optimization", desc: "Core Web Vitals, Lighthouse 95+, and CDN-grade architecture for instant loads." },
 ];
 
-const stats = [
-  { v: "100+", l: "Projects Delivered" },
-  { v: "50+", l: "Happy Clients" },
-  { v: "99%", l: "Satisfaction Rate" },
-  { v: "12+", l: "Countries Served" },
+const stats: { n: number; suffix: string; l: string }[] = [
+  { n: 500, suffix: "+", l: "Projects Delivered" },
+  { n: 150, suffix: "+", l: "Happy Clients" },
+  { n: 99,  suffix: "%", l: "Satisfaction Rate" },
+  { n: 25,  suffix: "+", l: "Countries Served" },
 ];
+
 
 const process = [
   { n: "01", t: "Discovery", d: "We dig into your goals, audience, and competition to define a winning brief." },
@@ -78,10 +80,12 @@ const pricing = [
 ];
 
 const testimonials = [
-  { name: "Aiden Carter", role: "Founder, Castle Home Goods", quote: "Scalex Studio rebuilt our Shopify store and revenue jumped 38% in 60 days. Pure craft and clarity." },
-  { name: "Maya Iqbal", role: "CMO, Narimaan Traders", quote: "From strategy to launch — the most professional team we've worked with. Our site finally matches the brand." },
-  { name: "Jordan Lee", role: "CEO, Windsor Home Buyers", quote: "Organic leads doubled within a quarter. Their SEO and CRO playbook is the real deal." },
-  { name: "Sara K.", role: "Operations, Elite Gleam Cleaning", quote: "Beautiful, fast, and easy to manage. They actually understand small-business growth." },
+  { name: "Aiden Carter", initials: "AC", color: "oklch(0.72 0.18 250)", role: "Founder, Castle Home Goods", when: "2 weeks ago", rating: 5, quote: "Scalex Studio rebuilt our Shopify store and revenue jumped 38% in 60 days. Pure craft and clarity — communication was outstanding throughout." },
+  { name: "Maya Iqbal", initials: "MI", color: "oklch(0.7 0.2 320)", role: "CMO, Narimaan Traders", when: "1 month ago", rating: 5, quote: "From strategy to launch — the most professional team we've worked with. Our site finally matches the brand and the conversion uplift is real." },
+  { name: "Jordan Lee", initials: "JL", color: "oklch(0.7 0.18 160)", role: "CEO, Windsor Home Buyers", when: "3 weeks ago", rating: 5, quote: "Organic leads doubled within a quarter. Their SEO and CRO playbook is the real deal. Highly recommend to any growth-stage business." },
+  { name: "Sara Khan", initials: "SK", color: "oklch(0.7 0.2 30)", role: "Operations, Elite Gleam Cleaning", when: "2 months ago", rating: 5, quote: "Beautiful, fast, and easy to manage. They actually understand small-business growth and built exactly what we needed." },
+  { name: "Daniel Romero", initials: "DR", color: "oklch(0.7 0.18 200)", role: "Founder, Vemac", when: "5 weeks ago", rating: 5, quote: "Polished work, on time, and the team genuinely cares. They iterated until everything felt right — very rare these days." },
+  { name: "Emma Wallace", initials: "EW", color: "oklch(0.72 0.2 60)", role: "Marketing Lead, Furnitome", when: "6 weeks ago", rating: 5, quote: "Our Lighthouse score went from 52 to 98 and bounce rate dropped by 40%. The new design is gorgeous on every device." },
 ];
 
 const logos = [
@@ -102,17 +106,16 @@ export function Hero() {
           <Sparkles className="size-3.5 text-[color:var(--brand)]" />
           A premium digital studio · Available for new projects
         </div>
-        <h1 className="reveal in mt-6 text-5xl md:text-7xl lg:text-[5.25rem] font-bold leading-[1.02]">
-          We build{" "}
-          <span className="word-rotator h-[1.1em]">
+        <h1 className="reveal in mt-6 text-4xl sm:text-5xl md:text-7xl lg:text-[5.25rem] font-bold leading-[1.05]">
+          <span className="block">We build</span>
+          <span className="word-rotator block my-1 md:my-2">
             <span style={{ animationDelay: "0s" }}>high-performance</span>
             <span style={{ animationDelay: "1.8s" }}>conversion-led</span>
             <span style={{ animationDelay: "3.6s" }}>award-winning</span>
             <span style={{ animationDelay: "5.4s" }}>lightning-fast</span>
             <span style={{ animationDelay: "7.2s" }}>SEO-ready</span>
           </span>
-          <br className="hidden md:block" />
-          digital experiences that grow businesses
+          <span className="block">digital experiences that grow businesses</span>
         </h1>
         <p className="reveal in mt-6 mx-auto max-w-2xl text-lg text-muted-foreground">
           Web Design · Shopify · SEO · Development · Maintenance — delivered by a senior team obsessed with craft and conversion.
@@ -130,7 +133,9 @@ export function Hero() {
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
           {stats.map((s) => (
             <div key={s.l} className="glass rounded-2xl p-5 text-left gradient-border">
-              <div className="text-3xl md:text-4xl font-bold text-gradient">{s.v}</div>
+              <div className="text-3xl md:text-4xl font-bold text-gradient tabular-nums">
+                <Counter to={s.n} suffix={s.suffix} />
+              </div>
               <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
             </div>
           ))}
@@ -216,7 +221,9 @@ export function About() {
         <div className="reveal grid grid-cols-2 gap-4">
           {stats.map((s) => (
             <div key={s.l} className="glass gradient-border rounded-2xl p-6">
-              <div className="text-4xl font-bold text-gradient">{s.v}</div>
+              <div className="text-4xl font-bold text-gradient tabular-nums">
+                <Counter to={s.n} suffix={s.suffix} />
+              </div>
               <div className="text-sm text-muted-foreground mt-1">{s.l}</div>
             </div>
           ))}
@@ -311,31 +318,80 @@ export function Pricing() {
 }
 
 export function Testimonials() {
+  const avgRating = 5.0;
+  const totalReviews = 187;
   return (
     <section className="relative py-28 px-4">
       <div className="mx-auto max-w-6xl">
-        <div className="reveal max-w-2xl">
-          <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Kind words</p>
-          <h2 className="mt-2 text-4xl md:text-6xl font-bold">Loved by <span className="text-gradient">founders</span></h2>
-        </div>
-        <div className="mt-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-          <div className="marquee flex gap-5 w-max">
-            {[...testimonials, ...testimonials].map((t, i) => (
-              <figure key={i} className="w-[360px] shrink-0 glass gradient-border rounded-2xl p-6">
-                <Quote className="size-5 text-[color:var(--brand)]" />
-                <blockquote className="mt-3 text-sm leading-relaxed">{t.quote}</blockquote>
-                <figcaption className="mt-5 text-sm">
-                  <div className="font-semibold">{t.name}</div>
-                  <div className="text-muted-foreground">{t.role}</div>
-                </figcaption>
-              </figure>
-            ))}
+        <div className="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div className="max-w-2xl">
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Client reviews</p>
+            <h2 className="mt-2 text-4xl md:text-6xl font-bold">Loved by <span className="text-gradient">founders</span></h2>
           </div>
+          <div className="glass gradient-border rounded-2xl px-5 py-4 flex items-center gap-4">
+            <GoogleG />
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-2xl font-bold tabular-nums">{avgRating.toFixed(1)}</span>
+                <div className="flex text-[#fbbc04]">
+                  {Array.from({ length: 5 }).map((_, i) => (<Star key={i} className="size-4 fill-current" />))}
+                </div>
+              </div>
+              <div className="text-xs text-muted-foreground">Based on {totalReviews} Google reviews</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {testimonials.map((t, i) => (
+            <figure
+              key={t.name}
+              className="reveal glass gradient-border rounded-2xl p-6 glow-hover flex flex-col"
+              style={{ transitionDelay: `${i * 60}ms` }}
+            >
+              <header className="flex items-center gap-3">
+                <div
+                  className="size-11 rounded-full flex items-center justify-center text-white font-semibold text-sm shrink-0"
+                  style={{ background: t.color }}
+                  aria-hidden
+                >
+                  {t.initials}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="font-semibold text-sm truncate">{t.name}</div>
+                  <div className="text-xs text-muted-foreground truncate">{t.role}</div>
+                </div>
+                <GoogleG className="size-5 shrink-0" />
+              </header>
+              <div className="mt-4 flex items-center gap-2">
+                <div className="flex text-[#fbbc04]">
+                  {Array.from({ length: t.rating }).map((_, j) => (<Star key={j} className="size-4 fill-current" />))}
+                </div>
+                <span className="text-xs text-muted-foreground">{t.when}</span>
+              </div>
+              <blockquote className="mt-3 text-sm leading-relaxed text-foreground/90">"{t.quote}"</blockquote>
+              <div className="mt-5 pt-4 border-t border-border/60 flex items-center gap-1.5 text-[11px] text-muted-foreground">
+                <GoogleG className="size-3.5" /> Posted on Google
+              </div>
+            </figure>
+          ))}
         </div>
       </div>
     </section>
   );
 }
+
+function GoogleG({ className = "size-6" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 48 48" className={className} aria-hidden>
+      <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+      <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+      <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+      <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+    </svg>
+  );
+}
+
 
 const CONTACT = {
   email: "hello@scalexstudio.com",
