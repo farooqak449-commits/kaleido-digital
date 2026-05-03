@@ -80,10 +80,12 @@ const pricing = [
 ];
 
 const testimonials = [
-  { name: "Aiden Carter", role: "Founder, Castle Home Goods", quote: "Scalex Studio rebuilt our Shopify store and revenue jumped 38% in 60 days. Pure craft and clarity." },
-  { name: "Maya Iqbal", role: "CMO, Narimaan Traders", quote: "From strategy to launch — the most professional team we've worked with. Our site finally matches the brand." },
-  { name: "Jordan Lee", role: "CEO, Windsor Home Buyers", quote: "Organic leads doubled within a quarter. Their SEO and CRO playbook is the real deal." },
-  { name: "Sara K.", role: "Operations, Elite Gleam Cleaning", quote: "Beautiful, fast, and easy to manage. They actually understand small-business growth." },
+  { name: "Aiden Carter", initials: "AC", color: "oklch(0.72 0.18 250)", role: "Founder, Castle Home Goods", when: "2 weeks ago", rating: 5, quote: "Scalex Studio rebuilt our Shopify store and revenue jumped 38% in 60 days. Pure craft and clarity — communication was outstanding throughout." },
+  { name: "Maya Iqbal", initials: "MI", color: "oklch(0.7 0.2 320)", role: "CMO, Narimaan Traders", when: "1 month ago", rating: 5, quote: "From strategy to launch — the most professional team we've worked with. Our site finally matches the brand and the conversion uplift is real." },
+  { name: "Jordan Lee", initials: "JL", color: "oklch(0.7 0.18 160)", role: "CEO, Windsor Home Buyers", when: "3 weeks ago", rating: 5, quote: "Organic leads doubled within a quarter. Their SEO and CRO playbook is the real deal. Highly recommend to any growth-stage business." },
+  { name: "Sara Khan", initials: "SK", color: "oklch(0.7 0.2 30)", role: "Operations, Elite Gleam Cleaning", when: "2 months ago", rating: 5, quote: "Beautiful, fast, and easy to manage. They actually understand small-business growth and built exactly what we needed." },
+  { name: "Daniel Romero", initials: "DR", color: "oklch(0.7 0.18 200)", role: "Founder, Vemac", when: "5 weeks ago", rating: 5, quote: "Polished work, on time, and the team genuinely cares. They iterated until everything felt right — very rare these days." },
+  { name: "Emma Wallace", initials: "EW", color: "oklch(0.72 0.2 60)", role: "Marketing Lead, Furnitome", when: "6 weeks ago", rating: 5, quote: "Our Lighthouse score went from 52 to 98 and bounce rate dropped by 40%. The new design is gorgeous on every device." },
 ];
 
 const logos = [
