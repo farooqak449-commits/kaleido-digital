@@ -191,3 +191,44 @@
 }
 .animate-float { animation: float 6s ease-in-out infinite; }
 .animate-blob { animation: blob 18s ease-in-out infinite; }
+
+/* Rotating headline */
+@keyframes word-cycle {
+  0%, 18%   { opacity: 0; transform: translateY(20px); filter: blur(6px); }
+  4%, 14%   { opacity: 1; transform: translateY(0);    filter: blur(0); }
+  20%, 100% { opacity: 0; transform: translateY(-20px); filter: blur(6px); }
+}
+.word-rotator {
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  min-width: 8ch;
+}
+.word-rotator > span {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  white-space: nowrap;
+  animation: word-cycle 9s infinite;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; z-index: 60;
+  background: var(--gradient-text);
+  width: var(--scroll, 0%);
+  transition: width .1s linear;
+  box-shadow: 0 0 12px color-mix(in oklab, var(--brand) 60%, transparent);
+}
+
+/* Premium gradient surface */
+.premium-surface {
+  background:
+    radial-gradient(600px 300px at 0% 0%, color-mix(in oklab, var(--brand) 25%, transparent), transparent 60%),
+    radial-gradient(500px 300px at 100% 100%, color-mix(in oklab, var(--brand-2) 22%, transparent), transparent 60%),
+    var(--card);
+}
