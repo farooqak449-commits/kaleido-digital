@@ -1,10 +1,11 @@
 import { useState } from "react";
 import {
   Code2, ShoppingBag, Search, Wrench, PenTool, Gauge,
-  Sparkles, ArrowRight, Check, Quote, Star,
+  Sparkles, ArrowRight, Check, Star,
   Mail, Phone, MessageCircle, Calendar, MapPin, Send,
 } from "lucide-react";
 import { Portfolio } from "./Portfolio";
+import { Counter } from "./Counter";
 
 const services = [
   { icon: Code2, title: "Website Design", desc: "Custom-built marketing sites and web apps engineered for speed and conversion." },
@@ -15,12 +16,13 @@ const services = [
   { icon: Gauge, title: "Performance Optimization", desc: "Core Web Vitals, Lighthouse 95+, and CDN-grade architecture for instant loads." },
 ];
 
-const stats = [
-  { v: "100+", l: "Projects Delivered" },
-  { v: "50+", l: "Happy Clients" },
-  { v: "99%", l: "Satisfaction Rate" },
-  { v: "12+", l: "Countries Served" },
+const stats: { n: number; suffix: string; l: string }[] = [
+  { n: 500, suffix: "+", l: "Projects Delivered" },
+  { n: 150, suffix: "+", l: "Happy Clients" },
+  { n: 99,  suffix: "%", l: "Satisfaction Rate" },
+  { n: 25,  suffix: "+", l: "Countries Served" },
 ];
+
 
 const process = [
   { n: "01", t: "Discovery", d: "We dig into your goals, audience, and competition to define a winning brief." },
