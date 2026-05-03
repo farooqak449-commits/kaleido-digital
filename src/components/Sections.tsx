@@ -121,7 +121,7 @@ export function Hero() {
           Web Design · Shopify · SEO · Development · Maintenance — delivered by a senior team obsessed with craft and conversion.
         </p>
         <div className="reveal in mt-9 flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="#contact" className="group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-medium bg-primary text-primary-foreground hover:opacity-90 transition shadow-[var(--shadow-glow)]">
+          <a href="https://calendly.com/scalexstudio/30min" target="_blank" rel="noreferrer" className="group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-medium bg-primary text-primary-foreground hover:opacity-90 transition shadow-[var(--shadow-glow)]">
             Get Free Strategy Call
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
           </a>
