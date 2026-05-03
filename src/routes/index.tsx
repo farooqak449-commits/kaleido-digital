@@ -30,6 +30,7 @@ function Index() {
     <div className="relative min-h-screen overflow-x-hidden">
       <ScrollProgress />
       <Cursor />
+      <Interactions />
       <Navbar />
       <main>
         <Hero />
