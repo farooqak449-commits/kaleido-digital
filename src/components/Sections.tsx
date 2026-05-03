@@ -16,11 +16,11 @@ const services = [
   { icon: Gauge, title: "Performance Optimization", desc: "Core Web Vitals, Lighthouse 95+, and CDN-grade architecture for instant loads." },
 ];
 
-const stats: { n: number; suffix: string; l: string }[] = [
-  { n: 500, suffix: "+", l: "Projects Delivered" },
-  { n: 150, suffix: "+", l: "Happy Clients" },
-  { n: 99,  suffix: "%", l: "Satisfaction Rate" },
-  { n: 25,  suffix: "+", l: "Countries Served" },
+const stats: { n: number; suffix: string; l: string; sub: string; icon: any }[] = [
+  { n: 500, suffix: "+", l: "Projects Delivered", sub: "Across 6 industries", icon: Rocket },
+  { n: 150, suffix: "+", l: "Happy Clients",      sub: "Repeat & referral led", icon: Users },
+  { n: 99,  suffix: "%", l: "Client Satisfaction", sub: "Based on post-project surveys", icon: Trophy },
+  { n: 25,  suffix: "+", l: "Countries Served",    sub: "From New York to Dubai",  icon: Globe2 },
 ];
 
 
