@@ -318,28 +318,79 @@ export function Pricing() {
 }
 
 export function Testimonials() {
+  const avgRating = 5.0;
+  const totalReviews = 187;
   return (
     <section className="relative py-28 px-4">
       <div className="mx-auto max-w-6xl">
-        <div className="reveal max-w-2xl">
-          <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Kind words</p>
-          <h2 className="mt-2 text-4xl md:text-6xl font-bold">Loved by <span className="text-gradient">founders</span></h2>
-        </div>
-        <div className="mt-12 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-          <div className="marquee flex gap-5 w-max">
-            {[...testimonials, ...testimonials].map((t, i) => (
-              <figure key={i} className="w-[360px] shrink-0 glass gradient-border rounded-2xl p-6">
-                <Quote className="size-5 text-[color:var(--brand)]" />
-                <blockquote className="mt-3 text-sm leading-relaxed">{t.quote}</blockquote>
-                <figcaption className="mt-5 text-sm">
-                  <div className="font-semibold">{t.name}</div>
-                  <div className="text-muted-foreground">{t.role}</div>
-                </figcaption>
-              </figure>
-            ))}
+        <div className="reveal flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div className="max-w-2xl">
+            <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Client reviews</p>
+            <h2 className="mt-2 text-4xl md:text-6xl font-bold">Loved by <span className="text-gradient">founders</span></h2>
+          </div>
+          <div className="glass gradient-border rounded-2xl px-5 py-4 flex items-center gap-4">
+            <GoogleG />
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-2xl font-bold tabular-nums">{avgRating.toFixed(1)}</span>
+                <div className="flex text-[#fbbc04]">
+                  {Array.from({ length: 5 }).map((_, i) => (<Star key={i} className="size-4 fill-current" />))}
+                </div>
+              </div>
+              <div className="text-xs text-muted-foreground">Based on {totalReviews} Google reviews</div>
+            </div>
           </div>
         </div>
+
+        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {testimonials.map((t, i) => (
+            <figure
+              key={t.name}
+              className="reveal glass gradient-border rounded-2xl p-6 glow-hover flex flex-col"
+              style={{ transitionDelay: `${i * 60}ms` }}
+            >
+              <header className="flex items-center gap-3">
+                <div
+                  className="size-11 rounded-full flex items-center justify-center text-white font-semibold text-sm shrink-0"
+                  style={{ background: t.color }}
+                  aria-hidden
+                >
+                  {t.initials}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="font-semibold text-sm truncate">{t.name}</div>
+                  <div className="text-xs text-muted-foreground truncate">{t.role}</div>
+                </div>
+                <GoogleG className="size-5 shrink-0" />
+              </header>
+              <div className="mt-4 flex items-center gap-2">
+                <div className="flex text-[#fbbc04]">
+                  {Array.from({ length: t.rating }).map((_, j) => (<Star key={j} className="size-4 fill-current" />))}
+                </div>
+                <span className="text-xs text-muted-foreground">{t.when}</span>
+              </div>
+              <blockquote className="mt-3 text-sm leading-relaxed text-foreground/90">"{t.quote}"</blockquote>
+              <div className="mt-5 pt-4 border-t border-border/60 flex items-center gap-1.5 text-[11px] text-muted-foreground">
+                <GoogleG className="size-3.5" /> Posted on Google
+              </div>
+            </figure>
+          ))}
+        </div>
       </div>
+    </section>
+  );
+}
+
+function GoogleG({ className = "size-6" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 48 48" className={className} aria-hidden>
+      <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+      <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+      <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+      <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+    </svg>
+  );
+}
     </section>
   );
 }
