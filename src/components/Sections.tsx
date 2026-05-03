@@ -416,9 +416,9 @@ function GoogleG({ className = "size-6" }: { className?: string }) {
 
 const CONTACT = {
   email: "hello@scalexstudio.com",
-  phone: "+1 (555) 010-2024",
-  phoneHref: "tel:+15550102024",
-  whatsapp: "https://wa.me/15550102024?text=Hi%20Scalex%20Studio%2C%20I%27d%20like%20to%20discuss%20a%20project.",
+  phone: "+1 (226) 741-8726",
+  phoneHref: "tel:+12267418726",
+  whatsapp: "https://wa.me/12267418726?text=Hi%20Scalex%20Studio%2C%20I%27d%20like%20to%20discuss%20a%20project.",
   calendly: "https://calendly.com/scalexstudio/30min",
   location: "Remote · Serving clients worldwide",
 };
