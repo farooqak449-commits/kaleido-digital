@@ -1,6 +1,8 @@
+import { useState } from "react";
 import {
   Code2, ShoppingBag, Search, Wrench, PenTool, Gauge,
   Sparkles, ArrowRight, Check, Quote, Star,
+  Mail, Phone, MessageCircle, Calendar, MapPin, Send,
 } from "lucide-react";
 import { Portfolio } from "./Portfolio";
 
