@@ -30,16 +30,48 @@ const process = [
 
 const pricing = [
   {
-    name: "Starter", price: "$1,499", tag: "Best for new brands",
-    features: ["Up to 5-page custom site", "Mobile-first design", "On-page SEO", "1 month support"],
+    name: "Starter",
+    price: "$999",
+    tag: "For new brands launching online",
+    timeline: "2–3 week delivery",
+    features: [
+      "Up to 5-page custom website",
+      "Mobile-first responsive design",
+      "On-page SEO setup",
+      "Contact / lead capture forms",
+      "Google Analytics + Search Console",
+      "1 month post-launch support",
+    ],
   },
   {
-    name: "Growth", price: "$3,999", tag: "Most popular", featured: true,
-    features: ["Up to 12 pages or Shopify store", "Premium UI/UX system", "Advanced SEO + analytics", "CMS integration", "3 months support"],
+    name: "Growth",
+    price: "$2,499",
+    tag: "Most popular — built to convert",
+    featured: true,
+    timeline: "3–5 week delivery",
+    features: [
+      "Up to 12 pages or full Shopify store",
+      "Premium UI/UX system + custom illustrations",
+      "Advanced SEO (technical + on-page)",
+      "CMS / Shopify integration & training",
+      "Speed optimization (Lighthouse 95+)",
+      "Conversion tracking & A/B test ready",
+      "3 months priority support",
+    ],
   },
   {
-    name: "Enterprise", price: "Custom", tag: "Scale without limits",
-    features: ["Custom web app / headless build", "Dedicated team & PM", "Performance SLAs", "Ongoing CRO + SEO retainer"],
+    name: "Enterprise",
+    price: "Custom",
+    tag: "Scale without limits",
+    timeline: "Quoted per scope",
+    features: [
+      "Custom web app / headless build",
+      "Dedicated team & project manager",
+      "Performance & uptime SLAs",
+      "Ongoing CRO + SEO retainer",
+      "Multi-region CDN & security hardening",
+      "Quarterly strategy reviews",
+    ],
   },
 ];
 
