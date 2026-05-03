@@ -2,14 +2,10 @@ type Props = {
   url: string;
   title: string;
   category: string;
+  image: string;
 };
 
-function shotUrl(url: string) {
-  const clean = url.replace(/^https?:\/\//, "");
-  return `https://image.thum.io/get/width/1200/crop/900/noanimate/https://${clean}`;
-}
-
-export function DeviceMockup({ url, title, category }: Props) {
+export function DeviceMockup({ url, title, category, image }: Props) {
   const display = url.replace(/^https?:\/\//, "").replace(/\/$/, "");
   return (
     <a
@@ -18,7 +14,6 @@ export function DeviceMockup({ url, title, category }: Props) {
       rel="noreferrer"
       className="group relative block rounded-2xl glass gradient-border overflow-hidden glow-hover"
     >
-      {/* Browser chrome */}
       <div className="flex items-center gap-2 px-4 py-3 border-b border-border/60">
         <span className="size-2.5 rounded-full bg-red-400/70" />
         <span className="size-2.5 rounded-full bg-yellow-400/70" />
@@ -29,9 +24,10 @@ export function DeviceMockup({ url, title, category }: Props) {
       </div>
       <div className="relative aspect-[4/3] overflow-hidden bg-muted">
         <img
-          src={shotUrl(url)}
+          src={image}
           alt={title}
           loading="lazy"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-[6000ms] ease-linear group-hover:-translate-y-[35%]"
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
