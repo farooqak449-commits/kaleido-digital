@@ -93,12 +93,7 @@ await writeFile(
   ),
 );
 
-// 3) Top-level config.json — route everything not matching a static file to the SSR function.
-const staticFiles = await readdir(path.join(out, "static"));
-const staticPattern = staticFiles.length
-  ? `^/(${staticFiles.map((f) => f.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})(/.*)?$`
-  : "^/__never__$";
-
+// 3) Top-level config.json — filesystem first, then SSR fallback.
 await writeFile(
   path.join(out, "config.json"),
   JSON.stringify(
@@ -106,7 +101,6 @@ await writeFile(
       version: 3,
       routes: [
         { handle: "filesystem" },
-        { src: staticPattern, status: 404 }, // existing assets handled above
         { src: "/(.*)", dest: "/index" },
       ],
     },
