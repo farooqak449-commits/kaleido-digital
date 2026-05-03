@@ -322,7 +322,9 @@ export function Pricing() {
                 ))}
               </ul>
               <a
-                href="#contact"
+                href={p.price === "Custom" ? "#contact" : "https://calendly.com/scalexstudio/30min"}
+                target={p.price === "Custom" ? undefined : "_blank"}
+                rel={p.price === "Custom" ? undefined : "noreferrer"}
                 className={`mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full py-3 font-medium ${
                   p.featured ? "bg-primary text-primary-foreground shadow-[var(--shadow-glow)]" : "glass gradient-border glow-hover"
                 }`}
