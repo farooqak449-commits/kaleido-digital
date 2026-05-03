@@ -98,8 +98,9 @@ export function Hero() {
     <section id="top" className="relative overflow-hidden pt-36 pb-28 px-4 noise">
       <div className="absolute inset-0 bg-hero" />
       <div className="absolute inset-0 grid-bg" />
-      <div className="absolute -top-20 -left-20 size-[480px] rounded-full bg-[oklch(var(--brand)/0.25)] blur-3xl animate-blob" style={{ background: "color-mix(in oklab, var(--brand) 30%, transparent)" }} />
-      <div className="absolute -bottom-32 -right-20 size-[520px] rounded-full blur-3xl animate-blob" style={{ background: "color-mix(in oklab, var(--brand-2) 30%, transparent)", animationDelay: "-6s" }} />
+      <div className="parallax absolute -top-20 -left-20 size-[480px] rounded-full blur-3xl animate-blob" data-depth="40" style={{ background: "color-mix(in oklab, var(--brand) 30%, transparent)" }} />
+      <div className="parallax absolute -bottom-32 -right-20 size-[520px] rounded-full blur-3xl animate-blob" data-depth="55" style={{ background: "color-mix(in oklab, var(--brand-2) 30%, transparent)", animationDelay: "-6s" }} />
+      <div className="parallax absolute top-1/3 right-1/4 size-[260px] rounded-full blur-3xl" data-depth="80" style={{ background: "color-mix(in oklab, var(--brand-3, var(--brand)) 22%, transparent)" }} />
 
       <div className="relative mx-auto max-w-5xl text-center">
         <div className="reveal in inline-flex items-center gap-2 glass rounded-full px-4 py-1.5 text-xs text-muted-foreground">
@@ -121,11 +122,11 @@ export function Hero() {
           Web Design · Shopify · SEO · Development · Maintenance — delivered by a senior team obsessed with craft and conversion.
         </p>
         <div className="reveal in mt-9 flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="#contact" className="group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-medium bg-primary text-primary-foreground hover:opacity-90 transition shadow-[var(--shadow-glow)]">
+          <a href="https://calendly.com/scalexstudio/30min" target="_blank" rel="noreferrer" className="magnetic group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-medium bg-primary text-primary-foreground hover:opacity-90 transition shadow-[var(--shadow-glow)]">
             Get Free Strategy Call
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
           </a>
-          <a href="#work" className="inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-medium glass gradient-border glow-hover">
+          <a href="#work" className="magnetic inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-medium glass gradient-border glow-hover">
             View Our Work
           </a>
         </div>
@@ -322,7 +323,9 @@ export function Pricing() {
                 ))}
               </ul>
               <a
-                href="#contact"
+                href={p.price === "Custom" ? "#contact" : "https://calendly.com/scalexstudio/30min"}
+                target={p.price === "Custom" ? undefined : "_blank"}
+                rel={p.price === "Custom" ? undefined : "noreferrer"}
                 className={`mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full py-3 font-medium ${
                   p.featured ? "bg-primary text-primary-foreground shadow-[var(--shadow-glow)]" : "glass gradient-border glow-hover"
                 }`}
@@ -416,9 +419,9 @@ function GoogleG({ className = "size-6" }: { className?: string }) {
 
 const CONTACT = {
   email: "hello@scalexstudio.com",
-  phone: "+1 (555) 010-2024",
-  phoneHref: "tel:+15550102024",
-  whatsapp: "https://wa.me/15550102024?text=Hi%20Scalex%20Studio%2C%20I%27d%20like%20to%20discuss%20a%20project.",
+  phone: "+1 (226) 741-8726",
+  phoneHref: "tel:+12267418726",
+  whatsapp: "https://wa.me/12267418726?text=Hi%20Scalex%20Studio%2C%20I%27d%20like%20to%20discuss%20a%20project.",
   calendly: "https://calendly.com/scalexstudio/30min",
   location: "Remote · Serving clients worldwide",
 };

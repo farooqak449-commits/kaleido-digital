@@ -44,7 +44,9 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <a
-            href="#contact"
+            href="https://calendly.com/scalexstudio/30min"
+            target="_blank"
+            rel="noreferrer"
             className="hidden sm:inline-flex items-center rounded-full px-4 py-2 text-sm font-medium text-primary-foreground bg-primary hover:opacity-90 transition"
           >
             Book a call
