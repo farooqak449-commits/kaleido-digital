@@ -337,27 +337,161 @@ export function Testimonials() {
   );
 }
 
+const CONTACT = {
+  email: "hello@scalexstudio.com",
+  phone: "+1 (555) 010-2024",
+  phoneHref: "tel:+15550102024",
+  whatsapp: "https://wa.me/15550102024?text=Hi%20Scalex%20Studio%2C%20I%27d%20like%20to%20discuss%20a%20project.",
+  calendly: "https://calendly.com/scalexstudio/30min",
+  location: "Remote · Serving clients worldwide",
+};
+
 export function CTA() {
+  const [sent, setSent] = useState(false);
+
   return (
     <section id="contact" className="relative py-28 px-4">
-      <div className="relative mx-auto max-w-5xl rounded-3xl overflow-hidden p-12 md:p-20 text-center glass gradient-border noise">
-        <div className="absolute inset-0 bg-hero opacity-80" />
-        <div className="relative reveal">
-          <h2 className="text-4xl md:text-6xl font-bold">
+      <div className="mx-auto max-w-6xl">
+        <div className="reveal max-w-2xl">
+          <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground">Get in touch</p>
+          <h2 className="mt-2 text-4xl md:text-6xl font-bold">
             Ready to <span className="text-gradient">scale</span> your business online?
           </h2>
-          <p className="mt-5 text-muted-foreground max-w-xl mx-auto">
-            Book a free 30-minute strategy call. Walk away with a clear roadmap — even if we never work together.
+          <p className="mt-5 text-muted-foreground">
+            Book a free 30-minute strategy call, message us on WhatsApp, or send a brief — we typically reply within a few hours.
           </p>
-          <a
-            href="mailto:hello@scalexstudio.com"
-            className="mt-8 inline-flex items-center gap-2 rounded-full px-8 py-4 font-medium bg-primary text-primary-foreground shadow-[var(--shadow-glow)] hover:opacity-90 transition"
+        </div>
+
+        <div className="mt-12 grid lg:grid-cols-5 gap-6">
+          {/* Left: contact channels */}
+          <div className="lg:col-span-2 space-y-4 reveal">
+            <a href={CONTACT.calendly} target="_blank" rel="noreferrer"
+               className="block premium-surface gradient-border rounded-2xl p-6 glow-hover">
+              <div className="flex items-center gap-3">
+                <div className="size-11 rounded-xl flex items-center justify-center" style={{ background: "var(--gradient-text)" }}>
+                  <Calendar className="size-5 text-white" />
+                </div>
+                <div>
+                  <div className="font-semibold">Book a free consultation</div>
+                  <div className="text-sm text-muted-foreground">30-min strategy call · via Calendly</div>
+                </div>
+              </div>
+              <div className="mt-4 inline-flex items-center gap-2 text-sm text-foreground">
+                Open Calendly <ArrowRight className="size-4" />
+              </div>
+            </a>
+
+            <a href={CONTACT.whatsapp} target="_blank" rel="noreferrer"
+               className="flex items-center gap-3 glass gradient-border rounded-2xl p-5 glow-hover">
+              <div className="size-10 rounded-xl flex items-center justify-center bg-[oklch(0.72_0.18_150)]">
+                <MessageCircle className="size-5 text-white" />
+              </div>
+              <div className="flex-1">
+                <div className="font-medium">WhatsApp us</div>
+                <div className="text-xs text-muted-foreground">Fastest response · chat now</div>
+              </div>
+              <ArrowRight className="size-4 text-muted-foreground" />
+            </a>
+
+            <a href={`mailto:${CONTACT.email}`}
+               className="flex items-center gap-3 glass gradient-border rounded-2xl p-5 glow-hover">
+              <div className="size-10 rounded-xl flex items-center justify-center" style={{ background: "var(--gradient-text)" }}>
+                <Mail className="size-5 text-white" />
+              </div>
+              <div className="flex-1">
+                <div className="font-medium">Email</div>
+                <div className="text-xs text-muted-foreground">{CONTACT.email}</div>
+              </div>
+            </a>
+
+            <a href={CONTACT.phoneHref}
+               className="flex items-center gap-3 glass gradient-border rounded-2xl p-5 glow-hover">
+              <div className="size-10 rounded-xl flex items-center justify-center" style={{ background: "var(--gradient-text)" }}>
+                <Phone className="size-5 text-white" />
+              </div>
+              <div className="flex-1">
+                <div className="font-medium">Call us</div>
+                <div className="text-xs text-muted-foreground">{CONTACT.phone}</div>
+              </div>
+            </a>
+
+            <div className="flex items-center gap-3 text-sm text-muted-foreground px-2">
+              <MapPin className="size-4" /> {CONTACT.location}
+            </div>
+          </div>
+
+          {/* Right: contact form */}
+          <form
+            onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+            className="lg:col-span-3 relative premium-surface gradient-border rounded-3xl p-8 md:p-10 reveal noise"
           >
-            Book Free Consultation <ArrowRight className="size-4" />
-          </a>
+            <h3 className="text-2xl font-semibold">Tell us about your project</h3>
+            <p className="text-sm text-muted-foreground mt-1">We'll get back within 24 hours with next steps.</p>
+
+            <div className="mt-6 grid sm:grid-cols-2 gap-4">
+              <Field label="Name" name="name" placeholder="Your full name" required />
+              <Field label="Email" name="email" type="email" placeholder="you@company.com" required />
+              <Field label="Company" name="company" placeholder="Company / brand" />
+              <Field label="Budget" name="budget" placeholder="$2,500 – $10,000+" />
+            </div>
+
+            <div className="mt-4">
+              <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Service</label>
+              <select name="service" className="mt-1.5 w-full rounded-xl bg-background/60 border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--brand)]">
+                <option>Website Design & Development</option>
+                <option>Shopify Store Development</option>
+                <option>SEO Services</option>
+                <option>UI/UX Design</option>
+                <option>Performance Optimization</option>
+                <option>Website Maintenance</option>
+              </select>
+            </div>
+
+            <div className="mt-4">
+              <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Project details</label>
+              <textarea
+                name="message"
+                rows={5}
+                required
+                placeholder="A few lines about your goals, timeline, and any references…"
+                className="mt-1.5 w-full rounded-xl bg-background/60 border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--brand)] resize-none"
+              />
+            </div>
+
+            <div className="mt-6 flex flex-col sm:flex-row items-center gap-3">
+              <button
+                type="submit"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 font-medium bg-primary text-primary-foreground shadow-[var(--shadow-glow)] hover:opacity-90 transition"
+              >
+                {sent ? "Message sent ✓" : "Send message"} <Send className="size-4" />
+              </button>
+              <a href={CONTACT.calendly} target="_blank" rel="noreferrer"
+                 className="text-sm text-muted-foreground hover:text-foreground inline-flex items-center gap-1">
+                or book a call directly <ArrowRight className="size-3.5" />
+              </a>
+            </div>
+            {sent && (
+              <p className="mt-3 text-sm text-[color:var(--brand)]">Thanks! We'll be in touch shortly.</p>
+            )}
+          </form>
         </div>
       </div>
     </section>
+  );
+}
+
+function Field({ label, name, type = "text", placeholder, required }: { label: string; name: string; type?: string; placeholder?: string; required?: boolean }) {
+  return (
+    <div>
+      <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{label}</label>
+      <input
+        type={type}
+        name={name}
+        required={required}
+        placeholder={placeholder}
+        className="mt-1.5 w-full rounded-xl bg-background/60 border border-border px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--brand)]"
+      />
+    </div>
   );
 }
 
