@@ -391,9 +391,7 @@ function GoogleG({ className = "size-6" }: { className?: string }) {
     </svg>
   );
 }
-    </section>
-  );
-}
+
 
 const CONTACT = {
   email: "hello@scalexstudio.com",
