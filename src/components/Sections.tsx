@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {
   Code2, ShoppingBag, Search, Wrench, PenTool, Gauge,
-  Sparkles, ArrowRight, Check, Star,
+  Sparkles, ArrowRight, Check, Star, Award, ShieldCheck, Rocket, Globe2, Users, Trophy,
   Mail, Phone, MessageCircle, Calendar, MapPin, Send,
 } from "lucide-react";
 import { Portfolio } from "./Portfolio";
@@ -16,11 +16,11 @@ const services = [
   { icon: Gauge, title: "Performance Optimization", desc: "Core Web Vitals, Lighthouse 95+, and CDN-grade architecture for instant loads." },
 ];
 
-const stats: { n: number; suffix: string; l: string }[] = [
-  { n: 500, suffix: "+", l: "Projects Delivered" },
-  { n: 150, suffix: "+", l: "Happy Clients" },
-  { n: 99,  suffix: "%", l: "Satisfaction Rate" },
-  { n: 25,  suffix: "+", l: "Countries Served" },
+const stats: { n: number; suffix: string; l: string; sub: string; icon: any }[] = [
+  { n: 500, suffix: "+", l: "Projects Delivered", sub: "Across 6 industries", icon: Rocket },
+  { n: 150, suffix: "+", l: "Happy Clients",      sub: "Repeat & referral led", icon: Users },
+  { n: 99,  suffix: "%", l: "Client Satisfaction", sub: "Based on post-project surveys", icon: Trophy },
+  { n: 25,  suffix: "+", l: "Countries Served",    sub: "From New York to Dubai",  icon: Globe2 },
 ];
 
 
@@ -132,11 +132,16 @@ export function Hero() {
 
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
           {stats.map((s) => (
-            <div key={s.l} className="glass rounded-2xl p-5 text-left gradient-border">
-              <div className="text-3xl md:text-4xl font-bold text-gradient tabular-nums">
+            <div key={s.l} className="stat-card group glass rounded-2xl p-5 text-left gradient-border tilt">
+              <div className="flex items-center justify-between">
+                <s.icon className="size-5 text-[color:var(--brand)]" />
+                <span className="text-[10px] uppercase tracking-widest text-muted-foreground">Verified</span>
+              </div>
+              <div className="mt-3 text-3xl md:text-4xl font-bold text-gradient tabular-nums">
                 <Counter to={s.n} suffix={s.suffix} />
               </div>
-              <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
+              <div className="text-sm font-medium mt-1">{s.l}</div>
+              <div className="text-[11px] text-muted-foreground mt-0.5">{s.sub}</div>
             </div>
           ))}
         </div>
@@ -220,18 +225,34 @@ export function About() {
         </div>
         <div className="reveal grid grid-cols-2 gap-4">
           {stats.map((s) => (
-            <div key={s.l} className="glass gradient-border rounded-2xl p-6">
-              <div className="text-4xl font-bold text-gradient tabular-nums">
+            <div key={s.l} className="stat-card glass gradient-border rounded-2xl p-6 tilt">
+              <div className="flex items-center justify-between">
+                <s.icon className="size-5 text-[color:var(--brand)]" />
+                <ShieldCheck className="size-4 text-muted-foreground" />
+              </div>
+              <div className="mt-3 text-4xl font-bold text-gradient tabular-nums">
                 <Counter to={s.n} suffix={s.suffix} />
               </div>
-              <div className="text-sm text-muted-foreground mt-1">{s.l}</div>
+              <div className="text-sm font-medium mt-1">{s.l}</div>
+              <div className="text-[11px] text-muted-foreground">{s.sub}</div>
             </div>
           ))}
           <div className="col-span-2 glass gradient-border rounded-2xl p-6">
-            <div className="flex items-center gap-1 text-[color:var(--brand)]">
-              {Array.from({ length: 5 }).map((_, i) => (<Star key={i} className="size-4 fill-current" />))}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-1 text-[color:var(--brand)]">
+                {Array.from({ length: 5 }).map((_, i) => (<Star key={i} className="size-4 fill-current" />))}
+              </div>
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <Award className="size-4" /> Top Rated Agency 2025
+              </div>
             </div>
             <p className="mt-3 text-sm text-muted-foreground">"Easily one of the best agencies we've worked with — process, quality, and outcomes."</p>
+            <div className="mt-3 flex flex-wrap gap-2 text-[10px] uppercase tracking-widest text-muted-foreground">
+              <span className="px-2 py-1 rounded-full border border-border/60">Clutch Verified</span>
+              <span className="px-2 py-1 rounded-full border border-border/60">Google Partner</span>
+              <span className="px-2 py-1 rounded-full border border-border/60">Shopify Experts</span>
+              <span className="px-2 py-1 rounded-full border border-border/60">ISO Secure</span>
+            </div>
           </div>
         </div>
       </div>

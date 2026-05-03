@@ -267,3 +267,36 @@
     radial-gradient(500px 300px at 100% 100%, color-mix(in oklab, var(--brand-2) 22%, transparent), transparent 60%),
     var(--card);
 }
+
+/* Trusted stat cards — interactive shine + magnetic tilt */
+.stat-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease, border-color .3s ease;
+}
+.stat-card::before {
+  content: "";
+  position: absolute; inset: -1px;
+  background: radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in oklab, var(--brand) 22%, transparent), transparent 45%);
+  opacity: 0; transition: opacity .4s ease;
+  pointer-events: none;
+}
+.stat-card:hover::before { opacity: 1; }
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px -25px color-mix(in oklab, var(--brand) 45%, transparent);
+}
+.stat-card .tabular-nums { animation: count-pop .8s ease both; }
+
+/* Magnetic 3D tilt — applied via JS, fallback safe */
+.tilt {
+  transform-style: preserve-3d;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1);
+}
+
+/* Floating gradient orb decoration */
+@keyframes orb-float {
+  0%,100% { transform: translate(0,0); }
+  50% { transform: translate(20px,-20px); }
+}

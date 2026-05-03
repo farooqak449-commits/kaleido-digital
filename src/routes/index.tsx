@@ -5,6 +5,7 @@ import {
 } from "@/components/Sections";
 import { ScrollProgress, WhatsAppFab } from "@/components/ScrollFx";
 import { Cursor } from "@/components/Cursor";
+import { Interactions } from "@/components/Interactions";
 import { useReveal } from "@/hooks/useReveal";
 
 export const Route = createFileRoute("/")({
@@ -29,6 +30,7 @@ function Index() {
     <div className="relative min-h-screen overflow-x-hidden">
       <ScrollProgress />
       <Cursor />
+      <Interactions />
       <Navbar />
       <main>
         <Hero />
