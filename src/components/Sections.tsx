@@ -221,7 +221,9 @@ export function About() {
         <div className="reveal grid grid-cols-2 gap-4">
           {stats.map((s) => (
             <div key={s.l} className="glass gradient-border rounded-2xl p-6">
-              <div className="text-4xl font-bold text-gradient">{s.v}</div>
+              <div className="text-4xl font-bold text-gradient tabular-nums">
+                <Counter to={s.n} suffix={s.suffix} />
+              </div>
               <div className="text-sm text-muted-foreground mt-1">{s.l}</div>
             </div>
           ))}
