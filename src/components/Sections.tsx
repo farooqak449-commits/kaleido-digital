@@ -225,18 +225,34 @@ export function About() {
         </div>
         <div className="reveal grid grid-cols-2 gap-4">
           {stats.map((s) => (
-            <div key={s.l} className="glass gradient-border rounded-2xl p-6">
-              <div className="text-4xl font-bold text-gradient tabular-nums">
+            <div key={s.l} className="stat-card glass gradient-border rounded-2xl p-6 tilt">
+              <div className="flex items-center justify-between">
+                <s.icon className="size-5 text-[color:var(--brand)]" />
+                <ShieldCheck className="size-4 text-muted-foreground" />
+              </div>
+              <div className="mt-3 text-4xl font-bold text-gradient tabular-nums">
                 <Counter to={s.n} suffix={s.suffix} />
               </div>
-              <div className="text-sm text-muted-foreground mt-1">{s.l}</div>
+              <div className="text-sm font-medium mt-1">{s.l}</div>
+              <div className="text-[11px] text-muted-foreground">{s.sub}</div>
             </div>
           ))}
           <div className="col-span-2 glass gradient-border rounded-2xl p-6">
-            <div className="flex items-center gap-1 text-[color:var(--brand)]">
-              {Array.from({ length: 5 }).map((_, i) => (<Star key={i} className="size-4 fill-current" />))}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-1 text-[color:var(--brand)]">
+                {Array.from({ length: 5 }).map((_, i) => (<Star key={i} className="size-4 fill-current" />))}
+              </div>
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <Award className="size-4" /> Top Rated Agency 2025
+              </div>
             </div>
             <p className="mt-3 text-sm text-muted-foreground">"Easily one of the best agencies we've worked with — process, quality, and outcomes."</p>
+            <div className="mt-3 flex flex-wrap gap-2 text-[10px] uppercase tracking-widest text-muted-foreground">
+              <span className="px-2 py-1 rounded-full border border-border/60">Clutch Verified</span>
+              <span className="px-2 py-1 rounded-full border border-border/60">Google Partner</span>
+              <span className="px-2 py-1 rounded-full border border-border/60">Shopify Experts</span>
+              <span className="px-2 py-1 rounded-full border border-border/60">ISO Secure</span>
+            </div>
           </div>
         </div>
       </div>
