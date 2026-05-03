@@ -4,6 +4,7 @@ import {
   Hero, Trust, Services, Portfolio, About, Process, Pricing, Testimonials, CTA, Footer,
 } from "@/components/Sections";
 import { ScrollProgress, WhatsAppFab } from "@/components/ScrollFx";
+import { Cursor } from "@/components/Cursor";
 import { useReveal } from "@/hooks/useReveal";
 
 export const Route = createFileRoute("/")({
@@ -27,6 +28,7 @@ function Index() {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
       <ScrollProgress />
+      <Cursor />
       <Navbar />
       <main>
         <Hero />
