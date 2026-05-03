@@ -3,6 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import {
   Hero, Trust, Services, Portfolio, About, Process, Pricing, Testimonials, CTA, Footer,
 } from "@/components/Sections";
+import { ScrollProgress, WhatsAppFab } from "@/components/ScrollFx";
 import { useReveal } from "@/hooks/useReveal";
 
 export const Route = createFileRoute("/")({
@@ -25,6 +26,7 @@ function Index() {
   useReveal();
   return (
     <div className="relative min-h-screen overflow-x-hidden">
+      <ScrollProgress />
       <Navbar />
       <main>
         <Hero />
@@ -38,6 +40,7 @@ function Index() {
         <CTA />
       </main>
       <Footer />
+      <WhatsAppFab />
     </div>
   );
 }
