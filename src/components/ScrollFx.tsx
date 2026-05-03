@@ -18,7 +18,7 @@ export function ScrollProgress() {
 export function WhatsAppFab() {
   return (
     <a
-      href="https://wa.me/15550102024?text=Hi%20Scalex%20Studio%21"
+      href="https://wa.me/12267418726?text=Hi%20Scalex%20Studio%21"
       target="_blank"
       rel="noreferrer"
       aria-label="Chat on WhatsApp"
