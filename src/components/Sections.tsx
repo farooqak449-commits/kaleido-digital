@@ -277,21 +277,28 @@ export function Pricing() {
               )}
               <div className="text-sm text-muted-foreground">{p.tag}</div>
               <h3 className="text-2xl font-semibold mt-1">{p.name}</h3>
-              <div className="mt-4 text-4xl font-bold">{p.price}</div>
-              <ul className="mt-6 space-y-3 text-sm">
+              <div className="mt-4 flex items-baseline gap-2">
+                <span className="text-5xl font-bold tracking-tight">{p.price}</span>
+                {p.price !== "Custom" && <span className="text-sm text-muted-foreground">one-time</span>}
+              </div>
+              <div className="mt-1 text-xs text-muted-foreground">{p.timeline}</div>
+              <div className="my-6 h-px bg-border" />
+              <ul className="space-y-3 text-sm">
                 {p.features.map((f) => (
                   <li key={f} className="flex items-start gap-2">
-                    <Check className="size-4 mt-0.5 text-[color:var(--brand)]" />{f}
+                    <Check className="size-4 mt-0.5 shrink-0 text-[color:var(--brand)]" />
+                    <span>{f}</span>
                   </li>
                 ))}
               </ul>
               <a
                 href="#contact"
-                className={`mt-7 inline-flex w-full items-center justify-center rounded-full py-3 font-medium ${
-                  p.featured ? "bg-primary text-primary-foreground" : "glass gradient-border glow-hover"
+                className={`mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full py-3 font-medium ${
+                  p.featured ? "bg-primary text-primary-foreground shadow-[var(--shadow-glow)]" : "glass gradient-border glow-hover"
                 }`}
               >
-                Get started
+                {p.price === "Custom" ? "Request a quote" : "Book a call"}
+                <ArrowRight className="size-4" />
               </a>
             </div>
           ))}
