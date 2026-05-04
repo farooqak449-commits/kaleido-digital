@@ -33,6 +33,12 @@ export const Route = createRootRoute({
       { name: "description", content: "Premium web design, Shopify development, SEO and UI/UX agency." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Scalex Studio — Premium Digital Agency" },
+      { name: "twitter:title", content: "Scalex Studio — Premium Digital Agency" },
+      { property: "og:description", content: "Premium web design, Shopify development, SEO and UI/UX agency." },
+      { name: "twitter:description", content: "Premium web design, Shopify development, SEO and UI/UX agency." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5eab1822-9fe8-4874-8611-0bcf5804b32f/id-preview-160d4fe3--02def9f7-d258-4e25-b464-8ead520ba309.lovable.app-1777881658239.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5eab1822-9fe8-4874-8611-0bcf5804b32f/id-preview-160d4fe3--02def9f7-d258-4e25-b464-8ead520ba309.lovable.app-1777881658239.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
